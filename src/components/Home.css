@@ -1,0 +1,203 @@
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #fff0de;
+  background-image: url("../assets/ganeshajimain.jpg"); /* Corrected the relative path */
+  background-size: cover; /* Make sure the image covers the entire background */
+  background-position: center; /* Center the background image */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full viewport height */
+  color: #ffffff; /* White text color */
+  position: relative; /* Ensure the pseudo-element is positioned relative to the hero section */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* Increase opacity to make the background darker */
+  z-index: -1; /* Ensure the overlay is behind the text */
+}
+
+.hero-title {
+  margin: 0;
+  font-size: 4em; /* Increased font size */
+  color: #ffffff; /* White text color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Add text shadow for better readability */
+  font-family: "Playfair Display", serif;
+}
+
+.hero-subtitle {
+  font-size: 2em; /* Increased font size */
+  color: #ffffff; /* White text color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add text shadow for better readability */
+  font-family: "Plus Jakarta Sans", sans-serif;
+  margin: 10px 0;
+}
+
+.hero-description {
+  font-size: 1.5em; /* Increased font size */
+  color: #ffffff; /* White text color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add text shadow for better readability */
+  font-family: "Plus Jakarta Sans", sans-serif;
+  margin-bottom: 20px;
+  max-width: 600px; /* Limit width for better readability */
+}
+
+.button {
+  padding: 15px 30px; /* Increased padding */
+  font-size: 1.2em; /* Increased font size */
+  background-color: #800000;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+  background-color: #990000;
+  color: black; /* Change text color on hover */
+  transform: scale(1.05); /* Slightly increase the size on hover */
+  text-decoration: none;
+}
+
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 3em; /* Adjusted for larger screens */
+  }
+
+  .hero-subtitle {
+    font-size: 1.5em; /* Adjusted for larger screens */
+  }
+
+  .hero-description {
+    font-size: 1.3em; /* Adjusted for larger screens */
+  }
+
+  .button {
+    font-size: 1.1em; /* Adjusted for larger screens */
+    padding: 12px 25px; /* Adjusted padding */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5em; /* Adjusted for tablets */
+  }
+
+  .hero-subtitle {
+    font-size: 1.2em; /* Adjusted for tablets */
+  }
+
+  .hero-description {
+    font-size: 1.1em; /* Adjusted for tablets */
+  }
+
+  .button {
+    font-size: 1em; /* Adjusted for tablets */
+    padding: 10px 20px; /* Adjusted padding */
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2em; /* Adjusted for mobile devices */
+  }
+
+  .hero-subtitle {
+    font-size: 1em; /* Adjusted for mobile devices */
+  }
+
+  .hero-description {
+    font-size: 1em; /* Adjusted for mobile devices */
+  }
+
+  .button {
+    font-size: 0.9em; /* Adjusted for mobile devices */
+    padding: 8px 15px; /* Adjusted padding */
+  }
+}
+
+/* Added CSS for the products section */
+.products-section {
+  padding: 50px 20px;
+  background-color: #fff0de;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  color: #343a40;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure the product grid styles are also applied */
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+/* Improved product card styling */
+.card {
+  border: none;
+  transition: transform 0.2s;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.2s;
+}
+
+.card img:hover {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+.btn-outline-dark {
+  border: 1px solid #343a40;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-outline-dark:hover {
+  background-color: #343a40;
+  color: #fff;
+}

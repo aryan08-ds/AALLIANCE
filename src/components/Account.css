@@ -1,0 +1,237 @@
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: #fff0de; /* Updated to match the theme */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.account-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #fff0de; /* Background color matching the theme */
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.login-card {
+  background-color: #fff;
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  border: 4px solid #800000;
+}
+
+.ganesh-img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  color: #800000;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.input-container {
+  margin-bottom: 1rem;
+  text-align: left;
+  position: relative;
+}
+
+.input-container label {
+  display: block;
+  color: #800000;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #800000;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #333;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-container input:focus {
+  border-color: #800000;
+}
+
+.error-text {
+  color: #800000; /* Red color to match the theme */
+  font-size: 0.9rem; /* Same font size as other texts */
+  margin-top: 0.5rem; /* Slight margin for spacing */
+}
+
+.trouble-text,
+.request-text {
+  color: #555;
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
+
+.sign-in-button {
+  background-color: #800000;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sign-in-button:hover {
+  background-color: #fff;
+  color: #800000;
+  border: 1px solid #800000;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1.5rem 0;
+  color: #800000;
+}
+
+.separator hr {
+  flex: 1;
+  border: none;
+  border-top: 1px solid #800000;
+}
+
+.separator span {
+  padding: 0 1rem;
+  color: #800000;
+  font-weight: bold;
+}
+
+.sign-in-with-text {
+  color: #800000;
+  margin-bottom: 1rem;
+}
+
+.generate-otp-button {
+  background-color: #800000;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.generate-otp-button:hover {
+  background-color: #fff;
+  color: #800000;
+  border: 1px solid #800000;
+}
+
+.request-text a {
+  color: #800000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.request-text a:hover {
+  text-decoration: underline;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #800000;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #fff;
+  color: #800000;
+  border: 1px solid #800000;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .login-card {
+    width: 90%;
+    padding: 2rem;
+    border-width: 3px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .description,
+  .input-container label,
+  .input-container input,
+  .trouble-text,
+  .request-text,
+  .sign-in-button,
+  .generate-otp-button,
+  .back-button {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    width: 100%;
+    padding: 1.5rem;
+    border-width: 2px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .description,
+  .input-container label,
+  .input-container input,
+  .trouble-text,
+  .request-text,
+  .sign-in-button,
+  .generate-otp-button,
+  .back-button {
+    font-size: 0.8rem;
+  }
+}

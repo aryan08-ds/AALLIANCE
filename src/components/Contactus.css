@@ -1,0 +1,155 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.contact-us-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px;
+}
+
+.contact-us {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Semi-transparent background for readability */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  width: 100%;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.contact-form,
+.contact-info {
+  width: 48%;
+}
+
+.contact-form h2,
+.contact-info h2 {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form-col {
+  margin-bottom: 10px;
+}
+
+.contact-form form label {
+  margin-bottom: 5px;
+}
+
+.contact-form form input,
+.contact-form form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.contact-form form input {
+  height: 40px;
+}
+
+.contact-form form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.contact-form form button {
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: #800000;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.contact-form form button:hover {
+  background-color: #a52a2a;
+}
+
+.divider {
+  width: 1px;
+  height: 100%;
+  background-color: #ccc;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-info-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-info-col {
+  width: 48%;
+}
+
+.contact-info p {
+  margin: 10px 0;
+}
+
+.contact-info i {
+  margin-right: 10px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .contact-us {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-form,
+  .contact-info {
+    width: 100%;
+  }
+
+  .contact-info-row {
+    flex-direction: column;
+  }
+
+  .contact-info-col {
+    width: 100%;
+  }
+
+  .divider {
+    display: none;
+  }
+}
