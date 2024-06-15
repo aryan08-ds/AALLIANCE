@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import g1 from "../assets/g1.jpg";
 import g2 from "../assets/g2.jpg";
@@ -19,6 +19,7 @@ const Home = () => {
         <h1 className="hero-title">AALLIANCE</h1>
         <small className="hero-subtitle">presents</small>
         <h1 className="hero-title">THE VIGHNAHARTA COLLECTION</h1>
+
         <NavLink to="/products" className="button">
           Shop Now
         </NavLink>

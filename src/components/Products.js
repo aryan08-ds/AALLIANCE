@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import idols from "../assets/idols.jpg";
 import g1 from "../assets/g1.jpg";
@@ -6,19 +6,51 @@ import g2 from "../assets/g2.jpg";
 import g3 from "../assets/g3.jpg";
 import "./Products.css";
 
-const Products = () => {
-  const products = [
-    { id: 1, title: "12 Inch Idol", price: 950, size: "12 inch", image: g1 },
-    { id: 2, title: "15 Inch Idol", price: 3500, size: "15 inch", image: g2 },
-    { id: 3, title: "18 Inch Idol", price: 4800, size: "18 inch", image: g3 },
-  ];
+const products = [
+  {
+    id: 1,
+    title: "12 Inch Idol",
+    price: 950,
+    size: "12 inch",
+    category: "idols",
+    image: g1,
+  },
+  {
+    id: 2,
+    title: "15 Inch Idol",
+    price: 3500,
+    size: "15 inch",
+    category: "idols",
+    image: g2,
+  },
+  {
+    id: 3,
+    title: "18 Inch Idol",
+    price: 4800,
+    size: "18 inch",
+    category: "idols",
+    image: g3,
+  },
+  // Add more products here with appropriate categories like 'jewelry', 'decorations'
+];
 
+const Products = () => {
   const [filter, setFilter] = useState(products);
   const [priceRange, setPriceRange] = useState([950, 4800]);
   const [selectedSizes, setSelectedSizes] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
+  useEffect(() => {
+    filterProduct();
+  }, [selectedCategory, selectedSizes, priceRange]);
 
   const filterProduct = () => {
     let updatedList = products;
+    if (selectedCategory !== "all") {
+      updatedList = updatedList.filter(
+        (product) => product.category === selectedCategory
+      );
+    }
     if (selectedSizes.length > 0) {
       updatedList = updatedList.filter((product) =>
         selectedSizes.includes(product.size)
@@ -45,33 +77,38 @@ const Products = () => {
     ]);
   };
 
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+  };
+
   const ShowProducts = () => {
     return (
       <div className="product-grid">
-        {filter.map((product) => {
-          return (
-            <div className="col-md-4 mb-4" key={product.id}>
-              <div className="card h-100 text-center p-4">
-                <img
-                  src={product.image}
-                  className="card-img-top"
-                  alt={product.title}
-                  height="250px"
-                />
-                <div className="card-body">
-                  <h5 className="card-title mb-0">{product.title}</h5>
-                  <p className="card-text lead fw-bold">${product.price}</p>
-                  <NavLink
-                    to={`/products/${product.id}`}
-                    className="btn btn-outline-dark"
-                  >
-                    Buy Now
-                  </NavLink>
-                </div>
+        {filter.map((product) => (
+          <div className="col-md-4 mb-4" key={product.id}>
+            <div className="card h-100 text-center p-4">
+              <img
+                src={product.image}
+                className="card-img-top"
+                alt={product.title}
+                height="250px"
+              />
+              <div className="card-body">
+                <h5 className="card-title mb-0">{product.title}</h5>
+                <p className="card-text lead fw-bold">${product.price}</p>
+                <NavLink
+                  to={{
+                    pathname: `/products/${product.id}`,
+                    state: { product },
+                  }}
+                  className="btn btn-outline-dark"
+                >
+                  Buy Now
+                </NavLink>
               </div>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
     );
   };
@@ -87,6 +124,28 @@ const Products = () => {
             </div>
           </div>
           <hr />
+        </div>
+      </div>
+      <div className="row mb-4">
+        <div className="col-12 category-buttons text-center">
+          <button
+            className="btn btn-category"
+            onClick={() => handleCategoryChange("jewelry")}
+          >
+            Jewelry
+          </button>
+          <button
+            className="btn btn-category"
+            onClick={() => handleCategoryChange("idols")}
+          >
+            Idols
+          </button>
+          <button
+            className="btn btn-category"
+            onClick={() => handleCategoryChange("decorations")}
+          >
+            Decorations
+          </button>
         </div>
       </div>
       <div className="row">

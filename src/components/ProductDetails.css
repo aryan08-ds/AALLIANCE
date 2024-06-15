@@ -1,0 +1,108 @@
+/* Container Styling */
+.product-details-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Back Button Styling */
+.back-button {
+  font-size: 1.5rem;
+  color: #800000; /* Arrow color */
+  background-color: #f5f5dc; /* Beige background color */
+  cursor: pointer;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.back-button i {
+  color: #800000; /* Arrow color */
+}
+
+.back-button:hover {
+  background-color: #b30000; /* Red background color on hover */
+  color: #fff; /* Arrow color on hover */
+}
+
+.back-button i:hover {
+  color: #fff; /* Arrow color on hover */
+}
+
+/* Include Font Awesome for arrow icon */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+
+/* Image Styling */
+.product-details-container .img-fluid {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styling */
+.product-details-container h1.display-4 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+/* Price Styling */
+.product-details-container .lead {
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: #000; /* Black color for prices */
+}
+
+/* Button Styling */
+.product-details-container .btn-outline-dark {
+  border: 2px solid #800000; /* Adjust color to match your theme */
+  color: #800000; /* Adjust color to match your theme */
+  background-color: #fff;
+  padding: 10px 20px;
+  font-size: 1.25rem;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 50px;
+}
+
+.product-details-container .btn-outline-dark:hover {
+  background-color: #800000; /* Adjust color to match your theme */
+  color: #fff;
+}
+
+/* Product Details */
+.product-details-container .product-details {
+  margin-top: 30px;
+}
+
+.product-details-container .product-details p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Mobile Responsive Styling */
+@media (max-width: 768px) {
+  .product-details-container {
+    padding: 10px;
+  }
+
+  .product-details-container h1.display-4 {
+    font-size: 2rem;
+  }
+
+  .product-details-container .lead {
+    font-size: 1.5rem;
+  }
+
+  .product-details-container .btn-outline-dark {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}
