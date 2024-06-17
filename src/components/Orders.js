@@ -1,24 +1,38 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./Orders.css"; // Make sure to create this file
+import "./Orders.css"; // Ensure you have this CSS file for styling
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch orders from API or state management store
-    // This is a placeholder, replace with your actual API call
-    const fetchedOrders = [
-      {
-        id: 8085,
-        date: "August 31, 2022",
-        status: "Completed",
-        total: "₹3,279.00 for 1 item",
-      },
-      // Add more orders as needed
-    ];
-    setOrders(fetchedOrders);
+    const fetchOrders = async () => {
+      try {
+        const response = await fetch("/api/orders"); // Replace with your actual API endpoint
+        if (!response.ok) {
+          throw new Error("Failed to fetch orders");
+        }
+        const data = await response.json();
+        setOrders(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchOrders();
   }, []);
+
+  if (loading) {
+    return <div className="orders-container">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="orders-container">Error: {error}</div>;
+  }
 
   return (
     <div className="orders-container">

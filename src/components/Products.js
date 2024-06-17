@@ -1,48 +1,37 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 import idols from "../assets/idols.jpg";
-import g1 from "../assets/g1.jpg";
-import g2 from "../assets/g2.jpg";
-import g3 from "../assets/g3.jpg";
 import "./Products.css";
 
-const products = [
-  {
-    id: 1,
-    title: "12 Inch Idol",
-    price: 950,
-    size: "12 inch",
-    category: "idols",
-    image: g1,
-  },
-  {
-    id: 2,
-    title: "15 Inch Idol",
-    price: 3500,
-    size: "15 inch",
-    category: "idols",
-    image: g2,
-  },
-  {
-    id: 3,
-    title: "18 Inch Idol",
-    price: 4800,
-    size: "18 inch",
-    category: "idols",
-    image: g3,
-  },
-  // Add more products here with appropriate categories like 'jewelry', 'decorations'
-];
-
 const Products = () => {
-  const [filter, setFilter] = useState(products);
-  const [priceRange, setPriceRange] = useState([950, 4800]);
+  const [products, setProducts] = useState([]);
+  const [filter, setFilter] = useState([]);
+  const [priceRange, setPriceRange] = useState([0, 5000]);
   const [selectedSizes, setSelectedSizes] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  useEffect(() => {
     filterProduct();
-  }, [selectedCategory, selectedSizes, priceRange]);
+  }, [products, selectedCategory, selectedSizes, priceRange]);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get(
+        "http://192.168.0.102:4201/api/v1/products"
+      );
+
+      setProducts(response.data.data);
+      console.log(response.data.data);
+      setFilter(response.data.data);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
 
   const filterProduct = () => {
     let updatedList = products;
@@ -85,20 +74,20 @@ const Products = () => {
     return (
       <div className="product-grid">
         {filter.map((product) => (
-          <div className="col-md-4 mb-4" key={product.id}>
+          <div className="col-md-4 mb-4" key={product._id}>
             <div className="card h-100 text-center p-4">
               <img
-                src={product.image}
+                src={product.images[0]}
                 className="card-img-top"
-                alt={product.title}
+                alt={product.name}
                 height="250px"
               />
               <div className="card-body">
-                <h5 className="card-title mb-0">{product.title}</h5>
+                <h5 className="card-title mb-0">{product.name}</h5>
                 <p className="card-text lead fw-bold">${product.price}</p>
                 <NavLink
                   to={{
-                    pathname: `/products/${product.id}`,
+                    pathname: `/products/${product._id}`,
                     state: { product },
                   }}
                   className="btn btn-outline-dark"
@@ -130,21 +119,21 @@ const Products = () => {
         <div className="col-12 category-buttons text-center">
           <button
             className="btn btn-category"
-            onClick={() => handleCategoryChange("jewelry")}
+            onClick={() => handleCategoryChange("Accessories")}
           >
-            Jewelry
+            Accessories
           </button>
           <button
             className="btn btn-category"
-            onClick={() => handleCategoryChange("idols")}
+            onClick={() => handleCategoryChange("Idols")}
           >
             Idols
           </button>
           <button
             className="btn btn-category"
-            onClick={() => handleCategoryChange("decorations")}
+            onClick={() => handleCategoryChange("Background")}
           >
-            Decorations
+            Background
           </button>
         </div>
       </div>
@@ -158,7 +147,7 @@ const Products = () => {
                   type="checkbox"
                   id="12inch"
                   value="12 inch"
-                  onChange={() => handleSizeChange("12 inch")}
+                  onChange={() => handleSizeChange("12")}
                 />
                 <label htmlFor="12inch">12 Inch</label>
               </div>
@@ -167,7 +156,7 @@ const Products = () => {
                   type="checkbox"
                   id="15inch"
                   value="15 inch"
-                  onChange={() => handleSizeChange("15 inch")}
+                  onChange={() => handleSizeChange("15")}
                 />
                 <label htmlFor="15inch">15 Inch</label>
               </div>
@@ -176,7 +165,7 @@ const Products = () => {
                   type="checkbox"
                   id="18inch"
                   value="18 inch"
-                  onChange={() => handleSizeChange("18 inch")}
+                  onChange={() => handleSizeChange("18")}
                 />
                 <label htmlFor="18inch">18 Inch</label>
               </div>
@@ -194,8 +183,8 @@ const Products = () => {
               <input
                 type="range"
                 id="priceRange"
-                min="950"
-                max="4800"
+                min="0"
+                max="5000"
                 value={priceRange[0]}
                 onChange={handlePriceChange}
                 className="form-range"
