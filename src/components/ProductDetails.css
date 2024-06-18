@@ -1,108 +1,98 @@
-/* Container Styling */
-.product-details-container {
+/* Base styles */
+body {
+  font-family: "Dongle", sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  color: #343a40;
+}
+
+/* Container */
+.container {
   max-width: 1200px;
   margin: auto;
   padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Back Button Styling */
+/* Product Details */
+.product-details-container {
+  padding: 40px 0;
+}
+
 .back-button {
-  font-size: 1.5rem;
-  color: #800000; /* Arrow color */
-  background-color: #f5f5dc; /* Beige background color */
   cursor: pointer;
   margin-bottom: 20px;
-  padding: 10px;
-  border-radius: 50%;
   display: inline-block;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.back-button i {
-  color: #800000; /* Arrow color */
+  font-size: 1.2rem;
+  color: #343a40;
+  transition: color 0.3s;
 }
 
 .back-button:hover {
-  background-color: #b30000; /* Red background color on hover */
-  color: #fff; /* Arrow color on hover */
+  color: #800000;
 }
 
-.back-button i:hover {
-  color: #fff; /* Arrow color on hover */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-/* Include Font Awesome for arrow icon */
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+.col-md-6 {
+  flex: 1;
+}
 
-/* Image Styling */
-.product-details-container .img-fluid {
+.img-fluid {
   max-width: 100%;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Heading Styling */
-.product-details-container h1.display-4 {
+.img-fluid:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #800000;
+  font-family: "Playfair Display", serif;
+}
+
+.product-price {
+  font-size: 2rem;
+  color: #343a40;
+}
+
+.product-details {
   margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 2.5rem;
-  color: #333;
+  font-size: 1.2rem;
 }
 
-/* Price Styling */
-.product-details-container .lead {
-  font-size: 1.75rem;
-  font-weight: 400;
-  color: #000; /* Black color for prices */
+.product-details p {
+  margin: 10px 0;
 }
 
-/* Button Styling */
-.product-details-container .btn-outline-dark {
-  border: 2px solid #800000; /* Adjust color to match your theme */
-  color: #800000; /* Adjust color to match your theme */
-  background-color: #fff;
-  padding: 10px 20px;
-  font-size: 1.25rem;
+.description {
+  margin-top: 20px;
+  font-family: "Dongle", sans-serif;
+  color: #343a40;
+}
+
+.btn-outline-dark {
+  border: 2px solid #800000;
+  border-radius: 20px;
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  color: #800000;
+  background: transparent;
   transition: background-color 0.3s, color 0.3s;
-  border-radius: 50px;
 }
 
-.product-details-container .btn-outline-dark:hover {
-  background-color: #800000; /* Adjust color to match your theme */
+.btn-outline-dark:hover {
+  background-color: #800000;
   color: #fff;
-}
-
-/* Product Details */
-.product-details-container .product-details {
-  margin-top: 30px;
-}
-
-.product-details-container .product-details p {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.6;
-}
-
-/* Mobile Responsive Styling */
-@media (max-width: 768px) {
-  .product-details-container {
-    padding: 10px;
-  }
-
-  .product-details-container h1.display-4 {
-    font-size: 2rem;
-  }
-
-  .product-details-container .lead {
-    font-size: 1.5rem;
-  }
-
-  .product-details-container .btn-outline-dark {
-    font-size: 1rem;
-    padding: 8px 16px;
-  }
 }

@@ -1,3 +1,4 @@
+/* Base styles */
 body {
   font-family: "Dongle", sans-serif;
   background-color: #f8f9fa;
@@ -5,11 +6,13 @@ body {
   padding: 0;
 }
 
+/* Container */
 .container {
   max-width: 1200px;
   margin: auto;
 }
 
+/* Hero Section */
 .hero-image-container {
   position: relative;
   text-align: center;
@@ -51,6 +54,7 @@ body {
   background-color: #fff;
 }
 
+/* Filter Bar */
 .filter-bar {
   position: -webkit-sticky; /* For Safari */
   position: sticky;
@@ -167,6 +171,7 @@ body {
   transform: scale(1.05);
 }
 
+/* Responsive Styles */
 @media (max-width: 768px) {
   .card {
     margin-bottom: 20px;

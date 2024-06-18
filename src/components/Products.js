@@ -22,7 +22,7 @@ const Products = () => {
   const fetchProducts = async () => {
     try {
       const response = await axios.get(
-        "http://192.168.0.102:4201/api/v1/products"
+        "http://192.168.0.105:4201/api/v1/products"
       );
 
       setProducts(response.data.data);
